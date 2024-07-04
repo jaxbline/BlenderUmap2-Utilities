@@ -2,7 +2,7 @@ bl_info = {
     "name": "Umap Utilities",
     "blender": (4, 1, 0),
     "category": "Object",
-    "version": (1, 0, 6),
+    "version": (1, 0, 0),
     "author": "Jax",
     "description": "A bunch of random QoL stuff I made for working with Umap Exporter.",
 }
@@ -88,7 +88,6 @@ def fix_materials(context):
                 material = slot.material
                 if material and material.use_nodes:
                     replace_with_principled_bsdf(material.node_tree, diffuse_suffix, normals_suffix, metallic_roughness_suffix)
-    print("Disconnected shader nodes connected to node groups and replaced group nodes with Principled BSDF nodes.")
 
 class OBJECT_OT_join_same_material(bpy.types.Operator):
     bl_idname = "object.join_same_material"
@@ -223,8 +222,8 @@ class VIEW3D_PT_umap_utilities(bpy.types.Panel):
 
     def draw(self, context):
         layout = self.layout
-        layout.operator("object.join_same_material")
         layout.operator("object.make_instance_real")
+        layout.operator("object.join_same_material")
         layout.label(text="Merge Vertices")
         box = layout.box()
         box.operator("object.merge_verts_by_distance")
