@@ -1,9 +1,7 @@
 # BlenderUmap2 QoL Plugin!
 Just a bunch of QoL stuff I made working with Minshu's [BlenderUmap2](https://github.com/MinshuG/BlenderUmap2)
 
-This was made for Blender 4.1! I dunno how it will act for older versions of Blender.
-
-
+This was written for **Blender 4.1**! May not work for older version. I dunno.
 
 # Installation
 1. Head to [Releases](https://github.com/jaxbline/Umap-Utilites/releases)
