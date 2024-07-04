@@ -107,7 +107,6 @@ class OBJECT_OT_join_same_material(bpy.types.Operator):
             bpy.ops.object.select_all(action='DESELECT')
 
             if apply_to_all:
-                # Group objects by material
                 material_groups = {}
                 for obj in context.view_layer.objects:
                     if obj.type == 'MESH' and obj.material_slots:
@@ -117,8 +116,7 @@ class OBJECT_OT_join_same_material(bpy.types.Operator):
                                 if material not in material_groups:
                                     material_groups[material] = []
                                 material_groups[material].append(obj)
-
-                # Join each group of objects
+                                
                 for material, objs in material_groups.items():
                     bpy.ops.object.select_all(action='DESELECT')
                     for obj in objs:
@@ -195,7 +193,6 @@ class OBJECT_OT_merge_verts_by_distance(bpy.types.Operator):
                                     material_groups[material] = []
                                 material_groups[material].append(obj)
 
-                # Merge vertices for each group of objects
                 for material, objs in material_groups.items():
                     bpy.ops.object.select_all(action='DESELECT')
                     for obj in objs:
@@ -260,17 +257,17 @@ def register():
         default=False
     )
     bpy.types.Scene.diffuse_suffix = bpy.props.StringProperty(
-        name="Diffuse Suffix",
+        name="Diffuse",
         description="Suffix for Diffuse textures",
         default="_di"
     )
     bpy.types.Scene.normals_suffix = bpy.props.StringProperty(
-        name="Normals Suffix",
+        name="Normals",
         description="Suffix for Normals textures",
         default="_no"
     )
     bpy.types.Scene.metallic_roughness_suffix = bpy.props.StringProperty(
-        name="Metallic/Roughness Suffix",
+        name="Metallic/Roughness",
         description="Suffix for Metallic/Roughness textures",
         default="_mr"
     )
