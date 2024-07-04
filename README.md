@@ -3,6 +3,10 @@ Just a bunch of QoL stuff I made working with Minshu's [BlenderUmap2](https://gi
 
 This was written for **Blender 4.1**! May not work for older version. I dunno.
 
+# Requirements
+* Blender 4.1 (Probably)
+* [BlenderUmap2](https://github.com/MinshuG/BlenderUmap2)
+
 # Installation
 1. Head to [Releases](https://github.com/jaxbline/Umap-Utilites/releases)
 2. Download the latest
