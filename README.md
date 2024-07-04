@@ -44,6 +44,9 @@ Most buttons are based of Selection. There is a "Apply to All" button that will 
 
 To use this your textures *must* have a suffix at the end of their name. 
 
+```TextureNameHere_Diffuse / TextureNameHere_Normal / TextureNameHere_MR```
+
+
 There are 3 Inputs currently
 * Diffuse
 * Normals
@@ -51,4 +54,3 @@ There are 3 Inputs currently
 
 ![image](https://github.com/jaxbline/Umap-Utilites/assets/65150735/0bb9a799-0be3-42c1-8e3a-694118bf3fb3)
 
-*TextureNameHere_Diffuse* / *TextureNameHere_Normal* / *TextureNameHere_MR*
