@@ -185,7 +185,6 @@ class OBJECT_OT_merge_verts_by_distance(bpy.types.Operator):
 
         if active_obj and active_obj.type == 'MESH':
             if apply_to_all:
-                # Group objects by material
                 material_groups = {}
                 for obj in context.view_layer.objects:
                     if obj.type == 'MESH' and obj.material_slots:
