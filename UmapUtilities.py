@@ -1,8 +1,8 @@
 bl_info = {
-    "name": "Umap Utilities",
+    "name": "BlenderUmap2 Utilities",
     "blender": (4, 1, 0),
     "category": "Object",
-    "version": (1, 0, 0),
+    "version": (1, 0, 2),
     "author": "Jax",
     "description": "A bunch of random QoL stuff I made for working with Umap Exporter.",
 }
@@ -177,39 +177,27 @@ class OBJECT_OT_merge_verts_by_distance(bpy.types.Operator):
     )
 
     def execute(self, context):
-        active_obj = context.active_object
         apply_to_all = context.scene.apply_to_all
 
-        if active_obj and active_obj.type == 'MESH':
-            if apply_to_all:
-                material_groups = {}
-                for obj in context.view_layer.objects:
-                    if obj.type == 'MESH' and obj.material_slots:
-                        for slot in obj.material_slots:
-                            material = slot.material
-                            if material:
-                                if material not in material_groups:
-                                    material_groups[material] = []
-                                material_groups[material].append(obj)
-
-                for material, objs in material_groups.items():
-                    bpy.ops.object.select_all(action='DESELECT')
-                    for obj in objs:
-                        obj.select_set(True)
-                    if objs:
-                        context.view_layer.objects.active = objs[0]
-                        bpy.ops.object.mode_set(mode='EDIT')
-                        bpy.ops.mesh.select_all(action='SELECT')
-                        bpy.ops.mesh.remove_doubles(threshold=self.distance)
-                        bpy.ops.object.mode_set(mode='OBJECT')
-            else:
+        if apply_to_all:
+            for obj in context.scene.objects:
+                if obj.type == 'MESH':
+                    context.view_layer.objects.active = obj
+                    bpy.ops.object.mode_set(mode='EDIT')
+                    bpy.ops.mesh.select_all(action='SELECT')
+                    bpy.ops.mesh.remove_doubles(threshold=self.distance)
+                    bpy.ops.object.mode_set(mode='OBJECT')
+        else:
+            active_obj = context.active_object
+            if active_obj and active_obj.type == 'MESH':
+                context.view_layer.objects.active = active_obj
                 bpy.ops.object.mode_set(mode='EDIT')
                 bpy.ops.mesh.select_all(action='SELECT')
                 bpy.ops.mesh.remove_doubles(threshold=self.distance)
                 bpy.ops.object.mode_set(mode='OBJECT')
-        else:
-            self.report({'WARNING'}, "The active object is not a mesh.")
-            return {'CANCELLED'}
+            else:
+                self.report({'WARNING'}, "The active object is not a mesh.")
+                return {'CANCELLED'}
         
         return {'FINISHED'}
 
@@ -218,7 +206,7 @@ class VIEW3D_PT_umap_utilities(bpy.types.Panel):
     bl_idname = "VIEW3D_PT_umap_utilities"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
-    bl_category = 'Tool'
+    bl_category = 'Umap'
 
     def draw(self, context):
         layout = self.layout
