@@ -32,11 +32,12 @@ Most buttons are based of Selection. There is a "Apply to All" button that will 
 * Automically merge verts by the selected amount to your current selected Objects
 > "Apply to All" works with this too!
 
+
+**Hide After Join**
+* When enabled this hides the mesh after they are joined together... Just makes thing easier shuffle through
+
 **Apply to All**
 * When enabled will apply the action to ALL meshes rather then the current selected one.
-
-**Hide on Join**
-* When enabled this hides the mesh after they are joined together... Just makes thing easier shuffle through
 
 **Fix Materials**
 * This feature will attempt to fix the "Generic Shader" issue when you import a Umap. This is mainly useful for embeded materials into your FBX.
