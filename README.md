@@ -20,10 +20,15 @@ This was written for **Blender 4.1**! May not work for older version. I dunno.
 # Features
 Most buttons are based of Selection. There is a "Apply to All" button that will preform the action to all meshes in your scene!
 
-![image](https://github.com/jaxbline/Umap-Utilites/assets/65150735/ccb1eea4-6f5e-4d8e-8537-bc7a5c97a52a)
+![image](https://github.com/jaxbline/BlenderUmap2-Utilities/assets/65150735/bec8c549-a004-49c4-9e30-0773307a1f16)
+
 
 **Make instance Real**
 * This does exactly what the name says. Makes all Instances.. real?
+
+**Make Single User**
+* Makes the active object into a single user by unlinking it.
+> Works with "Apply to All"
 
 **Join Meshes**
 
@@ -46,13 +51,15 @@ Most buttons are based of Selection. There is a "Apply to All" button that will 
 
 To use this your textures *must* have a suffix at the end of their name. 
 
-```TextureNameHere_Diffuse / TextureNameHere_Normal / TextureNameHere_MR```
+```TextureNameHere_di / TextureNameHere_no / TextureNameHere_mr / TextureNameHere_e```
 
 
-There are 3 Inputs currently
+There are 4 Inputs currently
 * Diffuse
 * Normals
 * Metallic/Roughness
+* Emission
 
-![image](https://github.com/jaxbline/Umap-Utilites/assets/65150735/0bb9a799-0be3-42c1-8e3a-694118bf3fb3)
+![image](https://github.com/jaxbline/BlenderUmap2-Utilities/assets/65150735/7244c155-5242-4cca-97ef-ff88a6e1c731)
+
 
