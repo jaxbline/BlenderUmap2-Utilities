@@ -2,9 +2,9 @@ bl_info = {
     "name": "BlenderUmap2 Utilities",
     "blender": (4, 1, 0),
     "category": "Object",
-    "version": (1, 0, 2),
+    "version": (1, 0, 3),
     "author": "Jax",
-    "description": "A bunch of random QoL stuff I made for working with Umap Exporter.",
+    "description": "A bunch of random QoL stuff I made for working with BlenderUmap2",
 }
 
 import bpy
@@ -182,19 +182,28 @@ class OBJECT_OT_merge_verts_by_distance(bpy.types.Operator):
         if apply_to_all:
             for obj in context.scene.objects:
                 if obj.type == 'MESH':
-                    context.view_layer.objects.active = obj
+                    try:
+                        bpy.ops.object.select_all(action='DESELECT')
+                        obj.select_set(True)
+                        context.view_layer.objects.active = obj
+                        bpy.ops.object.mode_set(mode='EDIT')
+                        bpy.ops.mesh.select_all(action='SELECT')
+                        bpy.ops.mesh.remove_doubles(threshold=self.distance)
+                        bpy.ops.object.mode_set(mode='OBJECT')
+                    except RuntimeError as e:
+                        self.report({'ERROR'}, f"Failed to merge vertices for {obj.name}: {e}")
+                        continue
+        else:
+            active_obj = context.active_object
+            if active_obj and active_obj.type == 'MESH':
+                try:
                     bpy.ops.object.mode_set(mode='EDIT')
                     bpy.ops.mesh.select_all(action='SELECT')
                     bpy.ops.mesh.remove_doubles(threshold=self.distance)
                     bpy.ops.object.mode_set(mode='OBJECT')
-        else:
-            active_obj = context.active_object
-            if active_obj and active_obj.type == 'MESH':
-                context.view_layer.objects.active = active_obj
-                bpy.ops.object.mode_set(mode='EDIT')
-                bpy.ops.mesh.select_all(action='SELECT')
-                bpy.ops.mesh.remove_doubles(threshold=self.distance)
-                bpy.ops.object.mode_set(mode='OBJECT')
+                except RuntimeError as e:
+                    self.report({'ERROR'}, f"Failed to merge vertices for {active_obj.name}: {e}")
+                    return {'CANCELLED'}
             else:
                 self.report({'WARNING'}, "The active object is not a mesh.")
                 return {'CANCELLED'}
@@ -202,7 +211,7 @@ class OBJECT_OT_merge_verts_by_distance(bpy.types.Operator):
         return {'FINISHED'}
 
 class VIEW3D_PT_umap_utilities(bpy.types.Panel):
-    bl_label = "Umap Utilities"
+    bl_label = "Utilities"
     bl_idname = "VIEW3D_PT_umap_utilities"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
