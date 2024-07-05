@@ -32,7 +32,7 @@ Most buttons are based of Selection. There is a "Apply to All" button that will 
 
 **Join Meshes**
 
-* This button will join meshes to your current selected Bbject based off materials
+* This button will join meshes to your current selected object based off materials
 > If "Apply to All" is enabled the Plugin will group all Objects in your scene based off their materials
 
 **Merge Vertcies by Distance**
