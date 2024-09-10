@@ -20,11 +20,11 @@ Plugin that quickly removes the node groups made by Umap and turns them into nor
   use the suffix of your unreal texture. In my case the suffix is _di
 * Supports packed Alpha maps in the diffuse texture (check out the toggle for it)
   
+
+
+
+![image](https://github.com/user-attachments/assets/b7610214-b06d-4983-918b-f895314b2f82)
+
 *The plugin supports multiple inputs juuust incase*
-
-
-  ![image](https://github.com/user-attachments/assets/b7610214-b06d-4983-918b-f895314b2f82)
-
-
 
 ![image](https://github.com/user-attachments/assets/7ce925e6-7e12-4acb-a44d-da986f740f10)
