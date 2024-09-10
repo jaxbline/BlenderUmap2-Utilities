@@ -1,65 +1,30 @@
-# BlenderUmap2 QoL Plugin!
+# BlenderUmap2 QoL Plugins!
 Just a bunch of QoL stuff I made working with Minshu's [BlenderUmap2](https://github.com/MinshuG/BlenderUmap2)
 
-This was written for **Blender 4.1**! May not work for older version. I dunno.
+This was written for **Blender 4.2**! May not work for older version. I dunno.
 
 # Requirements
-* Blender 4.1 (Probably)
+* Blender 4.2 (Probably)
 * [BlenderUmap2](https://github.com/MinshuG/BlenderUmap2)
 
 # Installation
 1. Head to [Releases](https://github.com/jaxbline/Umap-Utilites/releases)
-2. Download the latest
-3. Open Blender
-4. Goto preferences
-5. Add-ons
-6. Install
-7. Install Plugin
-8. Profit
+2. Download which plugin you want
+3. Install it like any other Blender Plugin
+4. Profit
 
-# Features
-Most buttons are based of Selection. There is a "Apply to All" button that will preform the action to all meshes in your scene!
+## Material Fixer
+Plugin that quickly removes the node groups made by Umap and turns them into normal shader nodes made for exporting. It also will remove all duplicated materials created by checking the name before the .mat extension (it works... probably)
 
-![image](https://github.com/jaxbline/BlenderUmap2-Utilities/assets/65150735/bec8c549-a004-49c4-9e30-0773307a1f16)
-
-
-**Make instance Real**
-* This does exactly what the name says. Makes all Instances.. real?
-
-**Make Single User**
-* Makes the active object into a single user by unlinking it.
-> Works with "Apply to All"
-
-**Join Meshes**
-
-* This button will join meshes to your current selected object based off materials
-> If "Apply to All" is enabled the Plugin will group all Objects in your scene based off their materials
-
-**Merge Vertcies by Distance**
-* Automically merge verts by the selected amount to your current selected Objects
-> "Apply to All" works with this too!
+* Supports Diffuse, Metallic/Roughness, Emission, and Normals
+  use the suffix of your unreal texture. In my case the suffix is _di
+* Supports packed Alpha maps in the diffuse texture (check out the toggle for it)
+  
+*The plugin supports multiple inputs juuust incase*
 
 
-**Hide After Join**
-* When enabled this hides the mesh after they are joined together... Just makes thing easier shuffle through
-
-**Apply to All**
-* When enabled will apply the action to ALL meshes rather then the current selected one.
-
-**Fix Materials**
-* This feature will attempt to fix the "Generic Shader" issue when you import a Umap. This is mainly useful for embeded materials into your FBX.
-
-To use this your textures *must* have a suffix at the end of their name. 
-
-```TextureNameHere_di / TextureNameHere_no / TextureNameHere_mr / TextureNameHere_e```
+  ![image](https://github.com/user-attachments/assets/b7610214-b06d-4983-918b-f895314b2f82)
 
 
-There are 4 Inputs currently
-* Diffuse
-* Normals
-* Metallic/Roughness
-* Emission
 
-![image](https://github.com/jaxbline/BlenderUmap2-Utilities/assets/65150735/7244c155-5242-4cca-97ef-ff88a6e1c731)
-
-
+![image](https://github.com/user-attachments/assets/7ce925e6-7e12-4acb-a44d-da986f740f10)
