@@ -1,4 +1,4 @@
-# BlenderUmap2 QoL Plugins!
+# BlenderUmap2 Tools.
 Just a bunch of QoL stuff I made working with Minshu's [BlenderUmap2](https://github.com/MinshuG/BlenderUmap2)
 
 This was written for **Blender 4.2**! May not work for older version. I dunno.
@@ -28,3 +28,6 @@ Plugin that quickly removes the node groups made by Umap and turns them into nor
 *The plugin supports multiple inputs juuust incase*
 
 ![image](https://github.com/user-attachments/assets/7ce925e6-7e12-4acb-a44d-da986f740f10)
+
+## Terrain Nodes
+Quickly generate a the (right) needed amount of mixing nodes to generate and input the proper texturing into any unreal terrain imported by BlenderUmap2
